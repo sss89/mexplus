@@ -8,5 +8,10 @@
 
 #include "mexpp/arguments.h"
 #include "mexpp/dispatch.h"
+#include "mexpp/AssertionError.h"
+#include "mexpp/class_handle.h"
+#include "mexpp/IMexPPWrappableClass.h"
+#include "mexpp/mexpp_class_model.h"
+#include "mexpp/MexPPStandardserializer.h"
 
 #endif  // INCLUDE_MEXPLUS_H_
