@@ -6,7 +6,7 @@
 #ifndef INCLUDE_MEXPLUS_H_
 #define INCLUDE_MEXPLUS_H_
 
-#include "mexplus/arguments.h"
-#include "mexplus/dispatch.h"
+#include "mexpp/arguments.h"
+#include "mexpp/dispatch.h"
 
 #endif  // INCLUDE_MEXPLUS_H_

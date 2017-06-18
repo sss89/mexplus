@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='Win32'">
+    <MatlabExternDir>C:\Program Files\MATLAB\R2014b\extern\</MatlabExternDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='x64'">
+    <MatlabExternDir>C:\Program Files\MATLAB\R2015b\extern\</MatlabExternDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros">
+    <MatlabRoot>C:\Program Files\MATLAB\R2015b</MatlabRoot>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(MatlabExternDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='Win32'">
+    <LibraryPath>$(MatlabExternDir)lib\win32\microsoft;$(LibraryPath)</LibraryPath>
+    <TargetExt>.mexw32</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='x64'">
+    <LibraryPath>$(MatlabExternDir)lib\win64\microsoft;$(LibraryPath)</LibraryPath>
+    <TargetExt>
+    </TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>libmx.lib;libmex.lib;libmat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/export:mexFunction %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="MatlabExternDir">
+      <Value>$(MatlabExternDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="MatlabRoot">
+      <Value>$(MatlabRoot)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

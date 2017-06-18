@@ -1,5 +1,8 @@
-MEXPLUS
+MEXPLUSPLUS
 =======
+This is the README for mexplus (the repository it was forked from).
+This file will update to the correct documentation in the future
+
 [![Build Status](https://travis-ci.org/kyamagu/mexplus.svg?branch=master)](https://travis-ci.org/kyamagu/mexplus)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
@@ -8,12 +11,12 @@ C++ Matlab MEX development kit.
 The kit contains a couple of C++ classes and macros to make MEX development
 easy in Matlab. There are 3 major components in the development kit.
 
- * `mexplus/dispatch.h` Macros to dispatch function calls within a MEX binary.
- * `mexplus/arguments.h` MEX function argument wrappers.
- * `mexplus/mxarray.h` MxArray data conversion and access class.
+ * `mexplusplus/dispatch.h` Macros to dispatch function calls within a MEX binary.
+ * `mexplusplus/arguments.h` MEX function argument wrappers.
+ * `mexplusplus/mxarray.h` MxArray data conversion and access class.
 
-All classes are located in `mexplus` namespace, and you can use all of them by
-including the `mexplus.h` header file.
+All classes are located in `mexplusplus` namespace, and you can use all of them by
+including the `mexplusplus.h` header file.
 
 The library depends on a few C++11 features, and might not be compatible with
 older compilers. For older `g++`, make sure to add `-std=c++11` flag at compile
