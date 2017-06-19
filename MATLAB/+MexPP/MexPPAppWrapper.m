@@ -30,7 +30,7 @@ classdef MexPPAppWrapper < handle
         end
         
         function hndl_id = restoreObject(obj, mex_obj_hndl)
-            hndl_id = obj.runCommand(mex_obj_hndl.class_name, 'Restore', mex_obj_hndl.saved_data);
+            hndl_id = obj.runCommand(mex_obj_hndl.class_name, 'Restore', mex_obj_hndl.getSavedState());
             obj.all_objects(hndl_id) = mex_obj_hndl;
         end
     end

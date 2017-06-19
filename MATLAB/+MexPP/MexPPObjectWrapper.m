@@ -48,6 +48,10 @@ classdef MexPPObjectWrapper < handle
         function class_name = getClassName(obj)
             class_name = obj.class_name;
         end
+        
+        function saved_state = getSavedState(obj)
+            saved_state = obj.saved_state;
+        end
     end
     
 end
