@@ -4,7 +4,7 @@
 #include "AssertionError.h"
 
 template <class T, class SerializationType>
-void parseRegularFunctions(char* cmd, int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+void parseRegularFunctions(char* cmd, int nlhs, mxArray *plhs[], int nrhs, mxArray *prhs[])
 {
 	// TODO: add new here (need to parse args)
 	VERIFY(nrhs > 2);
@@ -24,7 +24,8 @@ void parseRegularFunctions(char* cmd, int nlhs, mxArray *plhs[], int nrhs, const
 	if (!strcmp("Restore", cmd)) {
 		VERIFY(nlhs == 1);
 
-		SerializationType serializationObj(prhs[2]);
+		SerializationType serializationObj;
+		serializationObj.importFromMATLAB(prhs[2]);
 		T* obj = new T;
 		obj->unserialize(serializationObj);
 		plhs[0] = convertPtr2Mat<T>(obj);
