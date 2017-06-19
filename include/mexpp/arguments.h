@@ -35,7 +35,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "mexplus/mxarray.h"
+#include "mexpp/mxarray.h"
 
 namespace mexplus {
 
