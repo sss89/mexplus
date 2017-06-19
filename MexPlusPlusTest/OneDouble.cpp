@@ -1,16 +1,16 @@
 
 #include "OneDouble.h"
 
-OneDoubleMexPPSerialization OneDouble::serialize() const
+MexPPStandardSerializer OneDouble::serialize() const
 {
-	OneDoubleMexPPSerialization res;
-	res.setDouble(m_double);
+	MexPPStandardSerializer res;
+	res.setField("m_double", m_double);
 	return res;
 }
 
-void OneDouble::unserialize(const OneDoubleMexPPSerialization& data)
+void OneDouble::unserialize(const MexPPStandardSerializer& data)
 {
-	m_double = data.getDouble();
+	m_double = data.getField<double>("m_double");
 }
 
 

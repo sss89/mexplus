@@ -1,8 +1,9 @@
 #pragma once
 
 #include "IMexPPWrappableClass.h"
+#include "mexpp\MexPPStandardserializer.h"
 
-class OneDoubleMexPPSerialization
+class OneDoubleMexPPSerialization : IMexPPSerialization
 {
 public:
 	OneDoubleMexPPSerialization() {};
@@ -19,16 +20,8 @@ public:
 private:
 	double m_double;
 };
-//
-//template <IMexPPSerialization SerializationClass>
-//class IMexPPWrappableClassT <SerializationClass>
-//{
-//public:
-//	virtual SerializationClass serialize() const = 0;
-//	virtual void unserialize(const SerializationClass& data) = 0;
-//};
 
-class OneDouble : public IMexPPWrappableClassT<OneDoubleMexPPSerialization>
+class OneDouble : public IMexPPWrappableClassT<MexPPStandardSerializer>
 {
 public:
 	OneDouble() {};
@@ -41,8 +34,8 @@ public:
 
 	void multiply(double a) { m_double *= a; }
 
-	virtual OneDoubleMexPPSerialization serialize() const;
-	virtual void unserialize(const OneDoubleMexPPSerialization& data);
+	virtual MexPPStandardSerializer serialize() const;
+	virtual void unserialize(const MexPPStandardSerializer& data);
 
 protected:
 

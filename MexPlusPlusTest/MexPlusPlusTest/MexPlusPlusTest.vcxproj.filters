@@ -45,6 +45,9 @@
     <ClInclude Include="..\..\include\mexpp\AssertionError.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\mexpp\MexPPStandardserializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\mexFunction.cpp">

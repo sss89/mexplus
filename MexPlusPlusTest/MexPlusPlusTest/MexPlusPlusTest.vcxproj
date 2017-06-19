@@ -132,6 +132,7 @@
     <ClInclude Include="..\..\include\mexpp\class_handle.h" />
     <ClInclude Include="..\..\include\mexpp\dispatch.h" />
     <ClInclude Include="..\..\include\mexpp\IMexPPWrappableClass.h" />
+    <ClInclude Include="..\..\include\mexpp\MexPPStandardserializer.h" />
     <ClInclude Include="..\..\include\mexpp\mexpp_class_model.h" />
     <ClInclude Include="..\..\include\mexpp\mxarray.h" />
     <ClInclude Include="..\..\include\mexpp\mxtypes.h" />

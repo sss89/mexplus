@@ -38,7 +38,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 				plhs[0] = convertPtr2Mat<OneDouble>(new OneDouble(ptr[0]));
 			}
 
-			parseRegularFunctions<OneDouble, SerializationType>(cmd, nlhs, plhs, nrhs, prhs);
+			parseRegularFunctions<OneDouble, MexPPStandardSerializer>(cmd, nlhs, plhs, nrhs, prhs);
 
 			if (!strcmp("Mult", cmd)) {
 				VERIFY(nrhs > 3);
