@@ -13,7 +13,10 @@ template<class base> class class_handle
 public:
     class_handle(base *ptr) : ptr_m(ptr), name_m(typeid(base).name()) { signature_m = CLASS_HANDLE_SIGNATURE; }
     ~class_handle() { signature_m = 0; delete ptr_m; }
-    bool isValid() { return ((signature_m == CLASS_HANDLE_SIGNATURE) && !strcmp(name_m.c_str(), typeid(base).name())); }
+    //bool isValid() { return ((signature_m == CLASS_HANDLE_SIGNATURE) && !strcmp(name_m.c_str(), typeid(base).name())); }
+	// I removed the class check for inheritance reasons
+	// TODO: is it possible to do it prettier?
+	bool isValid() { return (signature_m == CLASS_HANDLE_SIGNATURE); }
     base *ptr() { return ptr_m; }
 
 private:
@@ -34,11 +37,13 @@ template<class base> inline mxArray *convertPtr2Mat(base *ptr)
 
 template<class base> inline class_handle<base> *convertMat2HandlePtr(const mxArray *in)
 {
-    if (mxGetNumberOfElements(in) != 1 || mxGetClassID(in) != mxUINT64_CLASS || mxIsComplex(in))
-        mexErrMsgTxt("Input must be a real uint64 scalar.");
+	if (mxGetNumberOfElements(in) != 1 || mxGetClassID(in) != mxUINT64_CLASS || mxIsComplex(in)) {
+		mexErrMsgTxt("Input must be a real uint64 scalar.");
+	}
     class_handle<base> *ptr = reinterpret_cast<class_handle<base> *>(*((uint64_t *)mxGetData(in)));
-    if (!ptr->isValid())
-        mexErrMsgTxt("Handle not valid.");
+	if (!(ptr->isValid())) {
+		mexErrMsgTxt("Handle not valid.");
+	}
     return ptr;
 }
 
